@@ -1,8 +1,9 @@
 ---
 
-grafana_port: 3000
 web_port: 8083
 api_port: 8086
+influx_user: root
+influx_passwd: root
 db_name: cadvisor
 influxsrv_name: influxsrv
 influx_version: 0.8.8
