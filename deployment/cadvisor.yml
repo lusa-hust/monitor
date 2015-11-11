@@ -7,7 +7,7 @@
     docker:
        name: "{{ cadvisor_name }}"
        image: google/cadvisor:latest
-       state: reloaded
+       state: started
        ports:
        - "{{ cadvisor_port }}:8080"
        expose:

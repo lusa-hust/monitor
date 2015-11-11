@@ -18,7 +18,7 @@
     docker:
        name: "{{ influxsrv_name }}"
        image: tutum/influxdb:{{ influx_version }}
-       state: reloaded
+       state: started
        ports:
        - "{{ web_port }}:8083"
        - "{{ api_port }}:8086"

@@ -6,7 +6,7 @@
   - name: running grafana container
     docker:
        image: grafana/grafana
-       state: reloaded
+       state: started
        ports:
        - "{{ grafana_port }}:3000"
        env:
