@@ -7,3 +7,7 @@ influx_passwd: root
 db_name: cadvisor
 influxsrv_name: influxsrv
 influx_version: 0.8.8
+
+grafana_port: 3000
+grafana_user: admin
+grafana_passwd: admin
