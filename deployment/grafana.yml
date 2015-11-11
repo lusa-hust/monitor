@@ -1,0 +1,21 @@
+---
+
+- hosts: webservers
+  sudo: yes
+  tasks:
+  - name: running grafana container
+    docker:
+       image: grafana/grafana
+       state: reloaded
+       ports:
+       - "{{ grafana_port }}:3000"
+       env:
+         HTTP_USER: "{{ grafana_user }}"
+         HTTP_PASS: "{{ grafana_passwd }}"
+         INFLUXDB_HOST: localhost
+         INFLUXDB_PORT: "{{ api_port }}"
+         INFLUXDB_NAME: "{{ db_name }}"
+         INFLUXDB_USER: "{{ influx_user }}"
+         INFLUXDB_PASS: "{{ influx_passwd }}"
+       links:
+         "{{ influxsrv_name }}:{{ influxsrv_name }}"
