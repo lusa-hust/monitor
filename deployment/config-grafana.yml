@@ -1,0 +1,26 @@
+---
+
+- hosts: 127.0.0.1
+  connection: local
+  vars:
+      template_file: "group_vars/create_data_source.json" 
+  tasks:
+    - name: Get temp path file for create data source grafana
+      set_fact:  temp_file="/var/tmp/create_data_source.json"
+
+    - name: create json body for create data source grafana
+      template:
+        src={{ template_file }}
+        dest={{temp_file}}
+
+    - name: Create data source grafana
+      uri:
+        url=http://{{grafana_server}}:{{grafana_port}}/api/datasources
+        method=POST
+        HEADER_Content-Type="application/json"
+        user='{{grafana_user}}'
+        password='{{grafana_passwd}}'
+        force_basic_auth=yes
+        body='{{ lookup("file", temp_file) }}'
+        body_format=json
+        status_code=200,201,204

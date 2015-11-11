@@ -19,3 +19,5 @@
          INFLUXDB_PASS: "{{ influx_passwd }}"
        links:
          "{{ influxsrv_name }}:{{ influxsrv_name }}"
+
+- include: config-grafana.yml
