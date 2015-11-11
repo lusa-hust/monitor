@@ -12,6 +12,7 @@
   - name: install docker-py
     pip:
        name: docker-py
+       version: 0.4.0
        state: present
 
   - name: running influxdb container
