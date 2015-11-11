@@ -12,14 +12,13 @@
   - name: install docker-py
     pip:
        name: docker-py
-       version: 0.4.0
        state: present
 
   - name: running influxdb container
     docker:
        name: "{{ influxsrv_name }}"
-       image: tutum/influxdb:"{{ influx_version }}"
-       state: present
+       image: tutum/influxdb:{{ influx_version }}
+       state: reloaded
        ports:
        - "{{ web_port }}:8083"
        - "{{ api_port }}:8086"
