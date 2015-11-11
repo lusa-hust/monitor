@@ -1,0 +1,7 @@
+---
+
+web_port: 8083
+api_port: 8086
+db_name: cadvisor
+influxsrv_name: influxsrv
+influx_version: 0.8.8

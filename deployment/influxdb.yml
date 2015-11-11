@@ -1,0 +1,29 @@
+---
+
+- hosts: webservers
+  sudo: yes
+  tasks:
+  - name: copy file to remote machine
+    copy: src=./get-pip.py dest=/opt/get-pip.py
+
+  - name: install pip
+    shell: python /opt/get-pip.py
+
+  - name: install docker-py
+    pip:
+       name: docker-py
+       state: present
+
+  - name: running influxdb container
+    docker:
+       name: "{{ influxsrv_name }}"
+       image: tutum/influxdb:"{{ influx_version }}"
+       state: present
+       ports:
+       - "{{ web_port }}:8083"
+       - "{{ api_port }}:8086"
+       expose:
+       - 8090
+       - 8099
+       env:
+         PRE_CREATE_DB: "{{db_name}}"
