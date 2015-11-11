@@ -11,3 +11,6 @@ influx_version: 0.8.8
 grafana_port: 3000
 grafana_user: admin
 grafana_passwd: admin
+
+cadvisor_name: cadvisor
+cadvisor_port: 8081
