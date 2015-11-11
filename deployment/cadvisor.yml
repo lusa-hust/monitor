@@ -1,0 +1,27 @@
+---
+
+- hosts: webservers
+  sudo: yes
+  tasks:
+  - name: running cadvisor container
+    docker:
+       name: "{{ cadvisor_name }}"
+       image: google/cadvisor:latest
+       state: reloaded
+       ports:
+       - "{{ cadvisor_port }}:8080"
+       expose:
+       - 8090
+       - 8099
+       env:
+         storage_driver: "{{ db_name }}"
+         storage_driver_db: "{{ cadvisor_name }}"
+         storage_driver_host={{ influxsrv_name }}: "{{ db_name }}"
+
+       volumes:
+         - //:/rootfs:ro
+         - /var/run:/var/run:rw
+         - /sys:/sys:ro
+         - /var/lib/docker/:/var/lib/docker:ro
+       links:
+         - "{{ influxsrv_name }}:{{ influxsrv_name }}"

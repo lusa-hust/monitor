@@ -7,3 +7,6 @@ influx_passwd: root
 db_name: cadvisor
 influxsrv_name: influxsrv
 influx_version: 0.8.8
+
+cadvisor_name: cadvisor
+cadvisor_port: 8081
