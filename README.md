@@ -16,7 +16,7 @@ E.g.
   grafana_user: admin
   grafana_passwd: admin
   ```
-Modify grafana ip in <hostfile>  
+Modify grafana ip in `<hostfile>`  
 
 Deploy
   ```bash
