@@ -17,6 +17,15 @@ E.g.
   grafana_passwd: admin
   ```
 Modify grafana ip in `<hostfile>`  
+example hostfile:
+```
+[webservers]
+10.141.141.10 ansible_ssh_private_key_file=<"path to ssh private key"> server_ip=10.141.141.10
+10.141.141.11 ansible_ssh_private_key_file=<"path to ssh private key"> server_ip=10.141.141.11
+
+[localhost]
+127.0.0.1 grafana_server=10.141.141.10 server_ip=10.141.141.10,10.141.141.11
+```
 
 Deploy
   ```bash
