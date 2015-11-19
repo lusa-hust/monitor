@@ -14,7 +14,7 @@
          HTTP_PASS: "{{ grafana_passwd }}"
          INFLUXDB_HOST: localhost
          INFLUXDB_PORT: "{{ api_port }}"
-         INFLUXDB_NAME: "{{ db_name }}"
+         INFLUXDB_NAME: "{{db_name}}_{{server_ip}}"
          INFLUXDB_USER: "{{ influx_user }}"
          INFLUXDB_PASS: "{{ influx_passwd }}"
        links:

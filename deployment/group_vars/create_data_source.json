@@ -1,7 +1,7 @@
 {
-    "name":"{{influxdb_name}}",
+    "name":"{{influxdb_name}}_{{ item }}",
     "type":"influxdb_08",
-    "url":"http://{{grafana_server}}:{{api_port}}",
+    "url":"http://{{ item }}:{{api_port}}",
     "access":"proxy",
     "basicAuth":true,
     "basicAuthUser":"{{ grafana_user }}",
@@ -9,5 +9,5 @@
     "isDefault":true,
     "user":"{{influx_user}}",
     "password":"{{influx_passwd}}",
-    "database":"{{db_name}}"
+    "database":"{{db_name}}_{{ item }}"
 }

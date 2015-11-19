@@ -13,7 +13,7 @@
        expose:
        - 8090
        - 8099
-       command: -storage_driver={{ influxdb_name }} -storage_driver_db={{ cadvisor_name }} -storage_driver_host={{ influxsrv_name }}:{{ api_port }}
+       command: -storage_driver={{ influxdb_name }} -storage_driver_db={{db_name}}_{{server_ip}} -storage_driver_host={{ influxsrv_name }}:{{ api_port }}
 
        volumes:
          - /:/rootfs:ro

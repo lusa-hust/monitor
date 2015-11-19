@@ -26,6 +26,6 @@
        - 8090
        - 8099
        env:
-         PRE_CREATE_DB: "{{db_name}}"
+         PRE_CREATE_DB: "{{db_name}}_{{server_ip}}"
          ADMIN_USER: "{{ influx_user }}"
          INFLUXDB_INIT_PWD: "{{ influx_passwd }}"
