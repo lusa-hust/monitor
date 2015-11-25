@@ -9,6 +9,14 @@
   - name: install pip
     shell: python /opt/get-pip.py
 
+  - name: add docker repository
+    apt_repository: repo='ppa:docker-maint/testing'
+  - name: update docker
+    apt:
+      update_cache: yes
+      name: docker.io
+      state: latest
+
   - name: install docker-py
     pip:
        name: docker-py
